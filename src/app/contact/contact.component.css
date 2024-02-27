@@ -1,0 +1,100 @@
+/* Add custom styles for the contact section */
+.contact-section {
+    padding: 60px 0;
+
+    background: white;
+    color: #ffffff;
+  }
+  
+  .contact-section h3 {
+    color: black;
+  }
+  
+  .contact-section h4 {
+    color: #0f0f10;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  
+  .contact-info,
+  .location-map {
+    padding: 20px;
+    background-color: #BA5BCC;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  }
+  
+  .contact-info p,
+  .location-map p {
+    margin: 10px 0;
+  }
+  
+  .section-title {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-control {
+    height: 50px;
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+    background-color: #ffffff;
+    color: #191a1a;
+  }
+  
+  .form-control::placeholder {
+    color: #191a1a;
+  }
+  
+  .form-control:focus {
+    outline: none;
+    background-color: #ffffff;
+    box-shadow: 0 0 5px rgba(186, 91, 204, 0.5);
+  }
+  
+  textarea.form-control {
+    resize: none;
+  }
+  
+  .btn-primary {
+    background-color: #191a1a;
+    border: none;
+    border-radius: 5px;
+    padding: 12px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .btn-primary:hover {
+    background-color: #2a2b2b;
+  }
+  
+  .btn-secondary {
+    background-color:  linear-gradient(to bottom, #333232, #066cd8); 
+    border: none;
+    border-radius: 5px;
+    padding: 12px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .btn-secondary:hover {
+    background-color: #8a3299;
+  }
+  address{
+    color:#191a1a;
+    font-weight: bold;
+  }

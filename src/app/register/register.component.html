@@ -1,0 +1,59 @@
+<div class="wrapper">
+  <div class="container main">
+    <div class="row">
+      <div class="col-md-6 side-image">
+        <img src="../../assets/images/Price-pana.png" alt="Side Image" class="side-image-img">
+      </div>
+      <div class="col-md-6 right">
+        <div class="input-box">
+          <header class="header-title" style="color:   rgba(24, 126, 236, 0.937);">
+            Welcome
+          </header>
+          <form (ngSubmit)="onRegister()" class="needs-validation" novalidate>
+
+            <div class="mb-3">
+              <input type="text" class="form-control" required autocomplete="off" [(ngModel)]="registerData.name" name="name" placeholder="Full Name">
+              <div class="invalid-feedback">
+                Full Name is required.
+              </div>
+            </div>
+            
+            <div class="mb-3">
+              <input type="email" class="form-control" required autocomplete="off" [(ngModel)]="registerData.email" name="email" placeholder="Email Address">
+              <div class="invalid-feedback">
+                Email is required.
+              </div>
+            </div>
+            
+            <div class="mb-3">
+              <div class="input-group">
+                <input type="{{ showPassword ? 'text' : 'password' }}" class="form-control" required [(ngModel)]="registerData.password" name="password" placeholder="Password">
+                <button class="btn btn-link input-group-text" type="button" (click)="toggleShowPassword()">
+                  <i class="fa" [ngClass]="{'fa-eye': !showPassword, 'fa-eye-slash': showPassword}"></i>
+                </button>
+              </div>
+              <div class="invalid-feedback">
+                Password is required.
+              </div>
+            </div>
+            <div class="input-field">
+              <label class="custom-checkbox-label">
+                <input type="checkbox">
+                <span class="checkmark"></span>
+                I agree to all statements in Terms of Service
+              </label>
+            </div>
+            
+            <div class="mb-3">
+              <button type="submit" class="btn btn-primary btn-block">Create Account</button>
+            </div>
+          </form>
+          <p *ngIf="registrationError" class="error-message">{{ errorMessage }}</p>
+          <div class="text-center">
+            Already have an account? <a routerLink="/login">Sign in here</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

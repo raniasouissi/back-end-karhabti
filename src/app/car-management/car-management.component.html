@@ -1,0 +1,243 @@
+<div class="container-fluid mt-5">
+    <div class="row">
+        <div class="col-md-12">
+            <button class="btn btn-primary add-car-button" (click)="showAddForm()">
+                <i class="fas fa-plus"></i>   Add Car
+            </button>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card modal-card" *ngIf="isAdding ">
+                <!-- Formulaire pour Ajouter une Nouvelle Voiture -->
+                <div class="card-body">
+                    <h2 class="card-title mb-4" style="font-family: Arial, sans-serif; color: rgb(30, 30, 192);">Add a New Car
+                    </h2>
+
+                    <form (submit)="onSubmit()" enctype="multipart/form-data">
+                        <div class="form-row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="name">Car Name</label>
+                                    <input type="text" class="form-control" id="name" [(ngModel)]="newCar.name"
+                                        name="name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="brand">Brand</label>
+                                    <input type="text" class="form-control" id="brand" [(ngModel)]="newCar.brand"
+                                        name="brand" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="year">Year</label>
+                                    <input type="number" class="form-control" id="year" [(ngModel)]="newCar.year"
+                                        name="year" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="puissancefiscale">Puissance Fiscale</label>
+                                    <input type="text" class="form-control" id="puissancefiscale"
+                                        [(ngModel)]="newCar.puissancefiscale" name="puissancefiscale" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="prix">Price</label>
+                                    <input type="number" class="form-control" id="prix" [(ngModel)]="newCar.prix"
+                                        name="prix" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="Kilometrage">Kilometrage</label>
+                                    <input type="text" class="form-control" id="Kilometrage"
+                                        [(ngModel)]="newCar.Kilometrage" name="Kilometrage" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="description">Description</label>
+                                    <textarea class="form-control" id="description" [(ngModel)]="newCar.description"
+                                        name="description" required></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Carburant">Fuel Type</label>
+                                    <input type="text" class="form-control" id="Carburant"
+                                        [(ngModel)]="newCar.Carburant" name="Carburant" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="image">Image</label>
+                                    <input type="file" (change)="onFileChange($event)" name="image">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-actions text-center mt-4">
+                            <button type="submit" class="btn btn-primary"><i class="fas fa-car"></i> Add Car</button>
+                            <button type="button" class="btn btn-secondary ml-2" (click)="cancelAdding()"><i
+                                    class="fas fa-times"></i> Cancel</button>
+                        </div>
+                    </form>
+                    <div *ngIf="showSuccessMessage" class="alert alert-success mt-3">
+                        Car added successfully!
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <ng-container *ngIf="!isAdding; else carList">
+                <!-- Liste des Voitures -->
+                <h2>All Cars</h2>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th>Nom</th>
+                                <th>Marque</th>
+                                <th>Année</th>
+                                <th>Puissance Fiscale</th>
+                                <th>Prix</th>
+                                <th>Kilométrage</th>
+                                <th>Description</th>
+                                <th>Carburant</th>
+                                <th>Couleur</th>
+                                <th>Est Vendue</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let car of cars">
+                                <td><img [src]="car.image ? car.image : 'path-to-default-image'" alt="{{ car.name }}"
+                                        class="car-image"></td>
+                                <td>{{ car.name }}</td>
+                                <td>{{ car.brand }}</td>
+                                <td>{{ car.year }}</td>
+                                <td>{{ car.puissancefiscale }}</td>
+                                <td>{{ car.prix }}</td>
+                                <td>{{ car.Kilometrage }}</td>
+                                <td>{{ car.description }}</td>
+                                <td>{{ car.Carburant }}</td>
+                                <td>{{ car.couleur }}</td>
+                                <td>{{ car.estVendue ? 'Oui' : 'Non' }}</td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-primary"
+                                        (click)="editCar(car)">Editer</button>
+                                    <button class="btn btn-sm btn-outline-danger ml-2"
+                                        (click)="car._id && deleteCar(car._id)">Supprimer</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+
+    <ng-template #carList>
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Nom</th>
+                        <th>Marque</th>
+                        <th>Année</th>
+                        <th>Puissance Fiscale</th>
+                        <th>Prix</th>
+                        <th>Kilométrage</th>
+                        <th>Description</th>
+                        <th>Carburant</th>
+                        <th>Couleur</th>
+                        <th>Est Vendue</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let car of cars">
+                        <td>
+                            <img [src]="car.image" alt="{{ car.name }} Image" class="car-image-list" />
+                        </td>
+
+                       
+
+
+
+
+
+                             
+                        <td>{{ car.name }}</td>
+                        <td>{{ car.brand }}</td>
+                        <td>{{ car.year }}</td>
+                        <td>{{ car.puissancefiscale }}</td>
+                        <td>{{ car.prix }}</td>
+                        <td>{{ car.Kilometrage }}</td>
+                        <td>{{ car.description }}</td>
+                        <td>{{ car.Carburant }}</td>
+                        <td>{{ car.couleur }}</td>
+                        <td>{{ car.estVendue ? 'Oui' : 'Non' }}</td>
+                        <td>
+                            <button class="btn btn-sm btn-outline-primary" (click)="editCar(car)">Editer</button>
+                            <button class="btn btn-sm btn-outline-danger ml-2"
+                                (click)="car._id && deleteCar(car._id)">Supprimer</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </ng-template>
+
+
+
+
+    <!-- Formulaire pour Modifier une Voiture -->
+    <div *ngIf="isEditing && selectedCar" class="mt-5">
+        <h2>Modifier la voiture</h2>
+        <form (ngSubmit)="updateCar()">
+
+            <div class="form-group">
+                <label>Marque</label>
+                <input type="text" class="form-control" [(ngModel)]="selectedCar.brand" name="brand" required>
+            </div>
+            <div class="form-group">
+                <label>Année</label>
+                <input type="number" class="form-control" [(ngModel)]="selectedCar.year" name="year" required>
+            </div>
+            <div class="form-group">
+                <label>Puissance fiscale</label>
+                <input type="text" class="form-control" [(ngModel)]="selectedCar.puissancefiscale"
+                    name="puissancefiscale" required>
+            </div>
+            <div class="form-group">
+                <label>Prix</label>
+                <input type="number" class="form-control" [(ngModel)]="selectedCar.prix" name="prix" required>
+            </div>
+            <div class="form-group">
+                <label>Kilométrage</label>
+                <input type="text" class="form-control" [(ngModel)]="selectedCar.Kilometrage" name="Kilometrage"
+                    required>
+            </div>
+            <div class="form-group">
+                <label>Description</label>
+                <textarea class="form-control" [(ngModel)]="selectedCar.description" name="description"
+                    required></textarea>
+            </div>
+            <div class="form-group">
+                <label>Carburant</label>
+                <input type="text" class="form-control" [(ngModel)]="selectedCar.Carburant" name="Carburant" required>
+            </div>
+            <div class="form-group">
+                <label>Couleur</label>
+                <input type="text" class="form-control" [(ngModel)]="selectedCar.couleur" name="couleur" required>
+            </div>
+            <div class="form-group">
+                <label>Est Vendue</label>
+                <select class="form-control" [(ngModel)]="selectedCar.estVendue" name="estVendue">
+                    <option [ngValue]="true">Oui</option>
+                    <option [ngValue]="false">Non</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Enregistrer</button>
+            <button type="button" class="btn btn-secondary ml-2" (click)="cancelEditing()"><i class="fas fa-times"></i>
+                Annuler</button>
+        </form>
+    </div>

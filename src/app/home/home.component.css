@@ -1,0 +1,48 @@
+/* Add the following CSS code to style the image container and image */
+.image-container {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 600px; /* Adjust the height to fit your image aspect ratio */
+  border-radius: 10px; /* Optional: Add rounded corners to the container */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Optional: Add a subtle shadow to the container */
+}
+
+.slide-in-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px; /* Optional: Add rounded corners to the image */
+  animation: slideInAnimation 2s ease-in-out;
+}
+
+/* Optional: Add a subtle zoom effect to the image on hover */
+.image-container:hover .slide-in-image {
+  transform: scale(1.05);
+  transition: transform 0.3s ease-in-out;
+}
+.welcome-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 35px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  /*text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);*/
+  color: #0d0d0d; /* Purple color for the title */
+}
+.karhebti {
+  color: #191a1a; /* Black color for the "Karhebti" part */
+}
+
+@keyframes slideInAnimation {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}

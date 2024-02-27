@@ -1,0 +1,84 @@
+/* Custom CSS for the header */
+.custom-header {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  
+
+  background: linear-gradient(to bottom,  #4F95C1,#2281BF);  /* Linear gradient from dark grey to sky blue */
+
+  font-family: "Poppins", sans-serif; /* Replace "Arial" with your desired font family */
+}
+
+/* Style the logo image */
+.logo-img {
+  height: 42px;
+  width: auto;
+}
+
+/* Style the navigation links */
+.navbar-nav .nav-item .nav-link {
+  font-weight: 600; /* Adjust the font weight as per your preference */
+  font-size: 14px;
+  padding: 8px 12px;
+  color: #ffffff; /* White text color for links */
+  transition: color 0.2s ease-in-out;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+  color: #0f44d5; /* Hover color for links */
+}
+
+.navbar-nav .nav-item .nav-link.active {
+  color: #0e0e0e !important; /* Adjust the color for active links as per your preference (Yellow in this case) */
+}
+.logout-link {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.logout-icon {
+  margin-right: 8px;
+  font-size: 25;
+}
+.custom-header .form-inline .btn {
+  background-color: #007bff; /* Couleur du bouton de recherche */
+  color: #fff; /* Couleur du texte de l'icône */
+  border-color: #007bff; /* Couleur de la bordure du bouton */
+  border-radius: 0; /* Supprimez les coins arrondis du bouton */
+}
+
+.custom-header .form-inline .btn i {
+  font-size: 24px; /* Augmentez ou diminuez la taille de l'icône */
+  margin-right: 8px; /* Ajustez la marge à droite de l'icône */
+}
+.custom-header .form-inline .btn:hover {
+  background-color: #0056b3; /* Couleur du bouton au survol */
+  border-color: #0056b3; /* Couleur de la bordure au survol */
+}
+@media (max-width: 767px) {
+  .navbar-nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar-toggler {
+    order: 2;
+    margin-left: auto;
+    margin-right: 10px;
+  }
+
+  .collapse.show {
+    display: block;
+  }
+
+  .nav-item {
+    margin-bottom: 10px;
+  }
+
+  .form-inline {
+    margin-top: 10px;
+  }
+}

@@ -1,0 +1,108 @@
+/* Ajoutez le lien vers la bibliothèque Font Awesome dans votre index.html pour utiliser les icônes */
+/* <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> */
+
+/* Utilisez une police de caractères élégante, par exemple "Poppins" */
+body {
+    font-family: "Poppins", sans-serif;
+  }
+  
+  .dashboard-vendeur {
+    display: flex;
+    font-family: "Poppins", sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    
+  }
+  
+  .sidebar {
+    background: linear-gradient(to bottom, #ffffff, #f0f0f0);
+    padding: 10px;
+    min-width: 200px;
+  }
+  
+  .sidebar h2 {
+    margin-bottom: 20px;
+  }
+  
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .sidebar li {
+    cursor: pointer;
+    padding: 10px 0;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+  }
+  
+  .sidebar li:hover {
+    background-color: #e6e6e6;
+  }
+  
+  .sidebar i {
+    margin-right: 10px;
+    font-size: 18px; /* Utilisez une taille d'icône plus petite */
+  }
+  
+  .content {
+    flex-grow: 1;
+    padding: 20px;
+  }
+  
+
+.fa-car {
+    color: #66cc99;
+  }
+  
+  .fa-gift {
+    color: #f39c12;
+  }
+  
+  .fa-users {
+    color: #3498db;
+  }
+  
+  .fa-user {
+    color: #9b59b6;
+  }
+  
+  .fa-sign-out-alt {
+    color: #e74c3c;
+  }
+  .dashboard-title {
+    color: #333; /* Couleur du texte */
+    font-size: 24px; /* Taille de la police */
+    margin-bottom: 20px; /* Espacement en bas pour séparer les éléments */
+  }
+  
+  .dashboard-icon {
+    font-size: 36px; /* Taille de l'icône */
+    margin-right: 10px; /* Espacement à droite pour l'icône */
+  }
+
+  .content {
+    padding: 20px; /* Espacement interne */
+  }
+  
+  /* Style pour le bouton "Home" */
+  .content button {
+    margin-bottom: 10px;
+  }
+  
+  /* Style pour le titre de la page */
+  .page-title {
+    font-size: 18px;
+    margin-left: 10px;
+    color: #333; /* Couleur de texte */
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+  }
+  
+  /* Style pour la zone de gestion */
+  .management-container {
+    margin-top: 20px;
+  }
+ 
+  

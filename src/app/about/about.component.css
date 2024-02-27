@@ -1,0 +1,31 @@
+.container {
+    max-width: 800px;
+  }
+  
+  .h2 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #673ab7;
+    margin-top: 40px;
+  }
+  
+  .img-fluid {
+    max-width: 250px;
+    height: auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .text {
+    font-size: 18px;
+    color: #444;
+    text-align: justify;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .text p {
+    margin-bottom: 20px;
+  }
+  
